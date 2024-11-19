@@ -102,5 +102,57 @@
             </div>
         </form>
     </div>
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    // SweetAlert confirmation before processing login
+    Swal.fire({
+        icon: 'warning',
+        title: 'Login to App?',
+        text: 'Are you sure you want to proceed?',
+        showCancelButton: true,
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'Discard',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Show loading spinner
+            Swal.fire({
+                title: 'Loading...',
+                html: 'Please wait while the process completes.',
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+
+            // Simulate processing delay
+            setTimeout(() => {
+                if (username === "Admin" && password === "admin") {
+                    // Success: Redirect to dashboard
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Login Successful!',
+                        text: 'Redirecting to dashboard...',
+                    }).then(() => {
+                        window.location.href = "dashboard.html";
+                    });
+                } else {
+                    // Error: Invalid credentials
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Login Failed!',
+                        text: 'Invalid username or password.',
+                    });
+                }
+            }, 2000); // Simulated delay (2 seconds)
+        }
+    });
+});
+
+    </script>
 </body>
 </html>
