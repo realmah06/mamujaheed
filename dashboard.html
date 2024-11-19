@@ -15,22 +15,22 @@
             margin: 0;
             padding: 0;
         }
-         nav{
+         .nav{
              background-color: darkgrenn;
              color: #fff;
              top: 0;
              position: fixed;
              width: 100%;
          }
-         nav p{
+         .nav p{
              padding: 7px;
              font-size: 18px;
              font-weight: bold;
     </style>
 <body>
-    <nav>
+    <div class="nav">
         <p id="user"></p>
-    </nav>
+    </div>
     <script>
          const storedUsername = localStorage.getItem("username");
         document.getElementById("user").innerHTML = storedUsername;
