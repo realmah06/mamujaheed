@@ -18,7 +18,11 @@
     </style>
 <body>
     <nav>
-        
+        <p id="user"></p>
     </nav>
+    <script>
+         const storedUsername = localStorage.getItem("username");
+        document.getElementById("user").innerHTML = storedUsername;
+    </script>
 </body>
 </html>
