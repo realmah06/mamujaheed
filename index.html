@@ -135,7 +135,8 @@
                 if (username === "Admin" && password === "admin") {
                     Swal.fire({
                         icon: 'success',
-                        title: 'Login Successful!',
+                        showConfirmButton: false,
+                        timer: 5000,
                     }).then(() => {
                         window.location.href = "dashboard.html";
                     });
